@@ -8,6 +8,49 @@ import seaborn as sns
 
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.model_selection import train_test_split
+<<<<<<< HEAD
+=======
+import pathlib
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.ensemble import RandomForestClassifier
+import seaborn as sns
+import time
+import os
+
+os.chdir('/home/onyxia/application')
+TrainingData = pd.read_csv('data.csv')
+
+TrainingData.head()
+
+
+TrainingData['Ticket'].str.split("/").str.len()
+
+TrainingData['Name'].str.split(",").str.len()
+
+n_trees = 20
+max_depth =None
+max_features='sqrt'
+
+TrainingData.isnull().sum()
+
+
+## Un peu d'exploration et de feature engineering
+
+### Statut socioéconomique
+
+fig, axes=plt.subplots(1,2, figsize=(12, 6)) #layout matplotlib 1 ligne 2 colonnes taile 16*8
+fig1_pclass=sns.countplot(data=TrainingData, x ="Pclass",    ax=axes[0]).set_title("fréquence des Pclass")
+fig2_pclass=sns.barplot(data=TrainingData, x= "Pclass",y= "Survived", ax=axes[1]).set_title("survie des Pclass")
+
+
+### Age
+
+sns.histplot(data= TrainingData, x='Age',bins=15, kde=False    )    .set_title("Distribution de l'âge")
+plt.show()
+
+## Encoder les données imputées ou transformées.
+from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
+>>>>>>> 88ed3e7a0157416119210170275540c3e6ad3eb2
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
