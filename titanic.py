@@ -10,6 +10,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.metrics import confusion_matrix
 import argparse
+import os
 from dotenv import load_dotenv
 
 
@@ -129,3 +130,10 @@ print(confusion_matrix(y_test, pipe.predict(X_test)))
 
 
 # ruff check titanic.py
+
+jeton_api = os.environ.get("JETON_API", "")
+
+if jeton_api.startswith("$"):
+    print("API token has been configured properly")
+else:
+    print("API token has not been configured")
