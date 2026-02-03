@@ -4,7 +4,6 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.ensemble import RandomForestClassifier
-import os
 import seaborn as sns
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
